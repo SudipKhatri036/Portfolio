@@ -130,8 +130,14 @@ main {
 .hero-content h1 {
   font-family: var(--primary-font);
   font-size: 4vw;
-  color: #0f0f0f;
   color: var(--primary-color);
+}
+.hero-content h1 span {
+  font-size: 5vw;
+  background-image: url("https://images.unsplash.com/photo-1646318714663-cf91b2d786d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxpZ3Rpbmd8ZW58MHx8MHx8fDA%3D");
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero-content .title {
   font-size: 1.2rem;
@@ -471,10 +477,6 @@ footer p {
   #ham-close {
     margin-right: 2vh;
   }
-
-  .button::before {
-    content: "";
-  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -515,32 +517,34 @@ footer p {
   fill: white;
 }
 
-.button:hover {
-  width: 140px;
-  border-radius: 50px;
-  transition-duration: 0.3s;
-  background-color: rgb(181, 160, 255);
-  align-items: center;
-}
+@media screen and (min-width: 700px) {
+  .button:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(181, 160, 255);
+    align-items: center;
+  }
 
-.button:hover .svgIcon {
-  transition-duration: 0.3s;
-  transform: translateY(-200%);
-}
+  .button:hover .svgIcon {
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+  }
 
-.button::before {
-  position: absolute;
-  bottom: -20px;
-  content: "Back to Top";
-  color: white;
-  font-size: 0px;
-}
+  .button::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Back to Top";
+    color: white;
+    font-size: 0px;
+  }
 
-.button:hover::before {
-  font-size: 13px;
-  opacity: 1;
-  bottom: unset;
-  transition-duration: 0.3s;
+  .button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    transition-duration: 0.3s;
+  }
 }
 
 /* Scroll to top Button Styling Ends */
