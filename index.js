@@ -13,8 +13,20 @@ closeMenu.addEventListener("click", () => {
   openMenu.style.display = "block";
 });
 
-// Trying scroll effect
+//  scroll to top effect
 const scrollBtn = document.getElementById("scroll-to-top-btn");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollBtn.style.display = "flex";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+}
 
 scrollBtn.addEventListener("click", scrollWin);
 function scrollWin() {
