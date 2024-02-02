@@ -181,6 +181,9 @@ main {
 .rounded {
   border-radius: 50%;
 }
+.white-bg {
+  background-color: #ffffff;
+}
 /* Skill Logo container Styling End*/
 /* Projects Section styling start */
 #projects {
@@ -456,8 +459,10 @@ footer p {
     width: 40%;
     z-index: -1;
     top: 70%;
-    padding-top: 2vh;
+    padding-top: 5vh;
     display: none;
+    gap: 50px;
+    margin-top: 2vh;
   }
   #ham-menu {
     display: block;
@@ -478,7 +483,7 @@ footer p {
   }
 }
 
-/* Different idea */
+/* Scroll to top Button Styling Starts */
 
 .button {
   width: 50px;
@@ -537,3 +542,5 @@ footer p {
   bottom: unset;
   transition-duration: 0.3s;
 }
+
+/* Scroll to top Button Styling Ends */
