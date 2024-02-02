@@ -50,6 +50,7 @@ header {
   position: fixed;
   z-index: 99;
 }
+
 header h2 {
   font-family: var(--logo-font);
   font-weight: bold;
