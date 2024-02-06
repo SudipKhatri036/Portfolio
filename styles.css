@@ -69,10 +69,14 @@ header h2 {
   font-size: 1.1rem;
   font-weight: 200;
   transition: all 0.3s ease-in-out;
+  padding-bottom: 0.2rem;
 }
+.active,
 #nav-bar a:hover {
-  border-bottom: 3px solid #0f0f0f;
+  /* border-bottom: 3px solid #0f0f0f; */
+  border-bottom: 3px solid #ffffff;
 }
+
 #ham-menu,
 #ham-close {
   font-size: 2rem;
@@ -510,6 +514,7 @@ footer p {
 
 .svgIcon {
   width: 12px;
+
   transition-duration: 0.3s;
 }
 
