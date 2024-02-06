@@ -116,17 +116,17 @@ gsap.from("#skill-container>h2,.skill-logo", {
 });
 
 // Scroll trigger for project section
-gsap.from("#project-card-container a", {
-  opacity: 0,
-  stagger: 0.2,
-  scrollTrigger: {
-    trigger: "#projects",
-    scroller: "body",
-    start: "top 10%",
-    end: "-100%",
-    scrub: 3,
-  },
-});
+// gsap.from("#project-card-container a", {
+//   opacity: 0,
+//   stagger: 0.2,
+//   scrollTrigger: {
+//     trigger: "#projects",
+//     scroller: "body",
+//     start: "top 10%",
+//     end: "-100%",
+//     scrub: 3,
+//   },
+// });
 
 // Scroll trigger for Contact section
 
