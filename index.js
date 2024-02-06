@@ -97,8 +97,9 @@ gsap.from(".hero-content>h1 , .title, .sub-title", {
   delay: 1,
 });
 
-// Practice scroll trigger
+// Scroll trigger
 
+// Scroll trigger for Skill section
 gsap.from("#skill-container>h2,.skill-logo", {
   opacity: 0,
   scale: 0,
@@ -107,9 +108,66 @@ gsap.from("#skill-container>h2,.skill-logo", {
   scrollTrigger: {
     trigger: "#skill-container",
     scroller: "body",
-    markers: true,
     start: "top 20%",
     end: "-100%",
     scrub: 3,
   },
 });
+
+// Scroll trigger for project section
+gsap.from("#project-card-container a", {
+  x: -300,
+  opacity: 0,
+  delay: 0.5,
+  stagger: 0.3,
+  scrollTrigger: {
+    trigger: "#projects",
+    scroller: "body",
+    scrub: 3,
+    end: "-100%",
+    start: "top 50%",
+  },
+});
+
+// Scroll trigger for Contact section
+let timeLine2 = gsap.timeline();
+
+timeLine2.from("#contact h2, #contact h3", {
+  x: -300,
+  opacity: 0,
+  delay: 0.5,
+  stagger: 0.3,
+  scrollTrigger: {
+    trigger: "#contact",
+    scroller: "body",
+    scrub: 2,
+    end: "-100%",
+    start: "top 50%",
+  },
+});
+timeLine2.from(".detail-section a", {
+  x: 300,
+  opacity: 0,
+  stagger: 0.3,
+  scrollTrigger: {
+    trigger: "#contact",
+    scroller: "body",
+    scrub: 3,
+    end: "-100%",
+    start: "top 50%",
+  },
+});
+
+gsap.from(".media-icon a", {
+  scale: 0,
+  opacity: 0,
+  scrollTrigger: {
+    trigger: "#contact",
+    scroller: "body",
+    scrub: 4,
+    end: "-100%",
+    start: "top 50%",
+  },
+});
+
+// Scroll trigger finished
