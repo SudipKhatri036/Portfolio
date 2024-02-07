@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 const openMenu = document.getElementById("ham-menu");
 const closeMenu = document.getElementById("ham-close");
 const navMenu = document.getElementById("nav-bar");
@@ -99,7 +98,7 @@ gsap.from(".hero-content>h1 , .title, .sub-title", {
 });
 
 // Scroll trigger
-
+gsap.registerPlugin(ScrollTrigger);
 // Scroll trigger for Skill section
 gsap.from("#skill-container>h2,.skill-logo", {
   opacity: 0,
@@ -115,40 +114,13 @@ gsap.from("#skill-container>h2,.skill-logo", {
   },
 });
 
-// Scroll trigger for project section
-// gsap.from("#project-card-container a", {
-//   opacity: 0,
-//   stagger: 0.2,
-//   scrollTrigger: {
-//     trigger: "#projects",
-//     scroller: "body",
-//     start: "top 10%",
-//     end: "-100%",
-//     scrub: 3,
-//   },
-// });
-
 // Scroll trigger for Contact section
 
-gsap.from("#contact h2, #contact h3", {
+gsap.from("#contact h2, #contact h3,.detail-section , .media-icon", {
   x: -300,
   opacity: 0,
-  delay: 0.5,
+  duration: 1,
   stagger: 0.3,
-  scrollTrigger: {
-    trigger: "#contact",
-    scroller: "body",
-    start: "top 10%",
-    end: "-10%",
-    scrub: 2,
-  },
-});
-gsap.from(".detail-section a, .media-icon a", {
-  x: 300,
-  opacity: 0,
-  stagger: 0.3,
-  delay: 0.2,
-  overflowX: "hidden",
   scrollTrigger: {
     trigger: "#contact",
     scroller: "body",
