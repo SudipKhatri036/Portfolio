@@ -1,0 +1,11 @@
+@mixin flexProp($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+@mixin widthProp {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
