@@ -192,10 +192,17 @@ main {
 /* Projects Section styling start */
 #projects {
   width: 100%;
+  height: 112vh;
+  overflow-y: hidden;
   margin: 0 auto;
   padding: 1vw 0;
   text-align: center;
+  position: relative;
 
+  &.show-more-active {
+    height: auto;
+    overflow-y: visible;
+  }
   h2 {
     font-family: $logo-font;
     font-weight: bold;
@@ -208,8 +215,8 @@ main {
   #project-card-container {
     padding: 1vw 2vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-gap: 2rem;
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
@@ -246,7 +253,17 @@ main {
       transform: scale(1.1);
     }
   }
+}
+.show-btn-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+
   #project-show {
+    display: block;
+    align-items: center;
+    justify-content: center;
     font-family: $secondary-font;
     padding: 1vw 2vw;
     border: 1px solid transparent;
@@ -264,6 +281,7 @@ main {
     }
   }
 }
+
 /* Projects Section styling End */
 /* Contact Section Styling Start */
 #contact {

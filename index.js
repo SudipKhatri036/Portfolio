@@ -113,58 +113,32 @@ const observerHeader = new IntersectionObserver(stickyNav, {
 
 observerHeader.observe(welcomeSection);
 
+// Show more and hide functonality
+const showMoreBtn = document.querySelector("#project-show");
+
+showMoreBtn.addEventListener("click", () => {
+  projectSection.classList.toggle("show-more-active");
+});
+
+function addActiveClass(entries) {
+  const [entry] = entries;
+  const activeSec = entry.target.dataset.num;
+
+  navMenu
+    .querySelectorAll("a")
+    .forEach((aEl) => aEl.classList.remove("active"));
+  aLinks[activeSec].classList.add("active");
+}
 // Adding active class
+const sections = document.querySelectorAll("section");
+const sectionsObserver = new IntersectionObserver(addActiveClass, {
+  root: null,
+  threshold: 0.8,
+});
+sections.forEach((sec) => {
+  sectionsObserver.observe(sec);
+});
 
-const observerSkill = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => console.log(entry));
-    const [entry] = entries;
-
-    if (entry.isIntersecting) {
-      navMenu
-        .querySelectorAll("a")
-        .forEach((aEl) => aEl.classList.remove("active"));
-      aLinks[1].classList.add("active");
-    }
-  },
-  { root: null, threshold: 0.7 }
-);
-
-observerSkill.observe(skillSection);
-
-const observerProject = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => console.log(entry));
-    const [entry] = entries;
-
-    if (entry.isIntersecting) {
-      navMenu
-        .querySelectorAll("a")
-        .forEach((aEl) => aEl.classList.remove("active"));
-      aLinks[2].classList.add("active");
-    }
-  },
-  { root: null, threshold: 0.3 }
-);
-
-observerProject.observe(projectSection);
-
-const observerContact = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => console.log(entry));
-    const [entry] = entries;
-
-    if (entry.isIntersecting) {
-      navMenu
-        .querySelectorAll("a")
-        .forEach((aEl) => aEl.classList.remove("active"));
-      aLinks[3].classList.add("active");
-    }
-  },
-  { root: null, threshold: 0.5 }
-);
-
-observerContact.observe(contactSection);
 // GSAP Library uses
 let tl = gsap.timeline();
 

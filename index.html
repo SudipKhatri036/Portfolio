@@ -22,7 +22,7 @@
       <i class="fa-solid fa-xmark" id="ham-close"></i>
     </header>
     <main>
-      <section id="welcome-section">
+      <section  id="welcome-section" data-num="0">
         <div class="image-container">
           <img
             src="./Images/Profile-pic.png"
@@ -41,7 +41,7 @@
           </p>
         </div>
       </section>
-      <section id="skill-container">
+      <section  id="skill-container" data-num="1">
         <h2>Skills</h2>
         <div id="skill-img-container">
         <img
@@ -74,7 +74,7 @@
         class="white-bg rounded skill-logo" />
       </div>
       </section>
-      <section id="projects">
+      <section  id="projects"  data-num="2">
         <h2>My Projects</h2>
         <div id="project-card-container">
           <a href="https://joblistingfrontend.netlify.app" target="_blank">
@@ -137,9 +137,11 @@
           </a>
 
         </div>
-        <button id="project-show">Show More</button>
       </section>
-      <section id="contact">
+      <div class="show-btn-cont">
+        <button id="project-show">Show More</button>
+      </div>
+      <section  id="contact" data-num="3">
         <h2>Let's Have a Chat</h2>
         <h3>I would love to hear from you.</h3>
         <div class="detail-section">
