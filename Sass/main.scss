@@ -421,10 +421,14 @@ footer {
       }
     }
   }
-
-  .skill-logo {
-    width: 10vh;
+  #skill-container {
+    #skill-img-container {
+      .skill-logo {
+        width: 10vh;
+      }
+    }
   }
+
   #projects {
     padding-top: 2vh;
 

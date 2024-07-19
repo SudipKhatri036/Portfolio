@@ -400,7 +400,7 @@ footer p {
   main #welcome-section .hero-content .sub-title {
     width: 70%;
   }
-  .skill-logo {
+  #skill-container #skill-img-container .skill-logo {
     width: 10vh;
   }
   #projects {
