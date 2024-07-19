@@ -2,6 +2,12 @@ const openMenu = document.getElementById("ham-menu");
 const closeMenu = document.getElementById("ham-close");
 const navMenu = document.getElementById("nav-bar");
 const scrollBtn = document.getElementById("scroll-to-top-btn");
+const navHeader = document.querySelector("header");
+const welcomeSection = document.querySelector("#welcome-section");
+const skillSection = document.querySelector("#skill-container");
+const projectSection = document.querySelector("#projects");
+const contactSection = document.querySelector("#contact");
+const aLinks = document.querySelectorAll(".nav__link");
 
 // Scroll to func
 navMenu.addEventListener("click", (e) => {
@@ -65,6 +71,100 @@ scrollBtn.addEventListener("click", () =>
   window.scrollTo({ top: 0, behavior: "smooth" })
 );
 
+// Menu Fade Effect
+function handleHover(e) {
+  if (e.target.classList.contains("nav__link")) {
+    const link = e.target;
+    const siblings = navMenu.querySelectorAll(".nav__link");
+
+    const logo = navHeader.querySelector("h2");
+
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+}
+
+navMenu.addEventListener("mouseover", handleHover.bind(0.5));
+navMenu.addEventListener("mouseout", handleHover.bind(1));
+
+// Intersectionobserver Api Use for scroll trigger
+const navHeaderHeight = navHeader.getBoundingClientRect().height;
+console.log(navHeaderHeight);
+const stickyNav = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) navHeader.classList.add("sticky");
+  else {
+    navHeader.classList.remove("sticky");
+    navMenu
+      .querySelectorAll("a")
+      .forEach((aEl) => aEl.classList.remove("active"));
+    aLinks[0].classList.add("active");
+  }
+};
+
+const observerHeader = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeaderHeight}px`,
+});
+
+observerHeader.observe(welcomeSection);
+
+// Adding active class
+
+const observerSkill = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => console.log(entry));
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      navMenu
+        .querySelectorAll("a")
+        .forEach((aEl) => aEl.classList.remove("active"));
+      aLinks[1].classList.add("active");
+    }
+  },
+  { root: null, threshold: 0.7 }
+);
+
+observerSkill.observe(skillSection);
+
+const observerProject = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => console.log(entry));
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      navMenu
+        .querySelectorAll("a")
+        .forEach((aEl) => aEl.classList.remove("active"));
+      aLinks[2].classList.add("active");
+    }
+  },
+  { root: null, threshold: 0.3 }
+);
+
+observerProject.observe(projectSection);
+
+const observerContact = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => console.log(entry));
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      navMenu
+        .querySelectorAll("a")
+        .forEach((aEl) => aEl.classList.remove("active"));
+      aLinks[3].classList.add("active");
+    }
+  },
+  { root: null, threshold: 0.5 }
+);
+
+observerContact.observe(contactSection);
 // GSAP Library uses
 let tl = gsap.timeline();
 
@@ -108,15 +208,15 @@ gsap.from("#skill-container>h2,.skill-logo", {
   scrollTrigger: {
     trigger: "#skill-container",
     scroller: "body",
-    start: "top 20%",
-    end: "-100%",
+    start: "top 5%",
+    end: "-10%",
     scrub: 3,
   },
 });
 
 // Scroll trigger for Contact section
 
-gsap.from("#contact h2, .detail-section , .media-icon", {
+gsap.from("#contact h2, #contact h3, .detail-section , .media-icon", {
   x: -300,
   opacity: 0,
   duration: 1,
@@ -124,7 +224,7 @@ gsap.from("#contact h2, .detail-section , .media-icon", {
   scrollTrigger: {
     trigger: "#contact",
     scroller: "body",
-    start: "top 10%",
+    start: "top 20%",
     end: "-10%",
     scrub: 2,
   },
