@@ -1,17 +1,22 @@
 const openMenu = document.getElementById("ham-menu");
 const closeMenu = document.getElementById("ham-close");
 const navMenu = document.getElementById("nav-bar");
+const scrollBtn = document.getElementById("scroll-to-top-btn");
 
-// Adding function of adding active in nav el
-var btns = document.getElementsByClassName("btn");
+// Scroll to func
+navMenu.addEventListener("click", (e) => {
+  const href = e.target.getAttribute("href");
 
-for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    let current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+  if (e.target.classList.contains("nav__link")) {
+    e.preventDefault();
+    navMenu
+      .querySelectorAll("a")
+      .forEach((aEl) => aEl.classList.remove("active"));
+    e.target.classList.add("active");
+  }
+  if (!href) return;
+  document.querySelector(`${href}`).scrollIntoView({ behavior: "smooth" });
+});
 
 // Menu open and close function starts
 
@@ -46,12 +51,6 @@ closeMenu.addEventListener("click", () => {
 // Menu open and close function ends
 
 //  scroll to top effect
-const scrollBtn = document.getElementById("scroll-to-top-btn");
-
-window.onscroll = function () {
-  scrollFunction();
-};
-
 function scrollFunction() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     scrollBtn.style.display = "flex";
@@ -60,10 +59,11 @@ function scrollFunction() {
   }
 }
 
-scrollBtn.addEventListener("click", scrollWin);
-function scrollWin() {
-  window.scrollTo(0, 0);
-}
+window.addEventListener("scroll", scrollFunction);
+
+scrollBtn.addEventListener("click", () =>
+  window.scrollTo({ top: 0, behavior: "smooth" })
+);
 
 // GSAP Library uses
 let tl = gsap.timeline();
@@ -75,7 +75,7 @@ tl.from("header>h2", {
   delay: 0.5,
 });
 
-tl.from("#nav-bar>h3", {
+tl.from("#nav-bar", {
   y: -15,
   opacity: 0,
   duration: 0.5,
@@ -116,7 +116,7 @@ gsap.from("#skill-container>h2,.skill-logo", {
 
 // Scroll trigger for Contact section
 
-gsap.from("#contact h2, #contact h3,.detail-section , .media-icon", {
+gsap.from("#contact h2, .detail-section , .media-icon", {
   x: -300,
   opacity: 0,
   duration: 1,
