@@ -215,7 +215,7 @@ main {
   #project-card-container {
     padding: 1vw 2vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 2rem;
     width: 100%;
     max-width: 1280px;
@@ -446,12 +446,14 @@ footer {
       }
     }
   }
-
   #projects {
     padding-top: 2vh;
 
     h2 {
       font-size: 1.6rem;
+    }
+    #project-card-container {
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     }
   }
   #contact {

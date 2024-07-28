@@ -209,7 +209,7 @@ main #welcome-section .hero-content .sub-title {
 #projects #project-card-container {
   padding: 1vw 2vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 2rem;
   width: 100%;
   max-width: 1280px;
@@ -425,6 +425,9 @@ footer p {
   }
   #projects h2 {
     font-size: 1.6rem;
+  }
+  #projects #project-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   }
   #contact h2 {
     font-size: 2.8rem;
